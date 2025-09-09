@@ -1,0 +1,46 @@
+﻿@model DetectiveAgency.Models.Employee
+@{
+    ViewData["Title"] = "Calculate Pay";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Calculate Weekly Pay</h2>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <form asp-action="CalcPay" method="post">
+            <div class="form-group">
+                <label asp-for="FirstName">First Name:</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LastName">Last Name:</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="HourlyRate">Hourly Rate:</label>
+                <input asp-for="HourlyRate" class="form-control" />
+                <span asp-validation-for="HourlyRate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="HoursWorked">Hours Worked:</label>
+                <input asp-for="HoursWorked" class="form-control" />
+                <span asp-validation-for="HoursWorked" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Salary">Weekly Salary:</label>
+                <input asp-for="Salary" value="@Model.Salary.ToString("C2")" class="form-control" readonly />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Calculate</button>
+            <button asp-controller="Home" asp-action="Index" class="btn btn-secondary">Clear</button>
+        </form>
+    </div>
+</div>
